@@ -1,19 +1,19 @@
 %define upstream_name    Text-ParseWords
 %define upstream_version 3.27
 
-Name:       perl-%{upstream_name}
-Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 3
+Name:		perl-%{upstream_name}
+Version:	%perl_convert_version %{upstream_version}
+Release:	4
 
-Summary:    Parse strings containing shell-style quoting
-License:    GPL+ or Artistic
-Group:      Development/Perl
-Url:        http://search.cpan.org/dist/%{upstream_name}
-Source0:    http://www.cpan.org/modules/by-module/Text/%{upstream_name}-%{upstream_version}.zip
+Summary:	Parse strings containing shell-style quoting
+License:	GPL+ or Artistic
+Group:		Development/Perl
+Url:		http://search.cpan.org/dist/%{upstream_name}
+Source0:	http://www.cpan.org/modules/by-module/Text/%{upstream_name}-%{upstream_version}.zip
 
-BuildRequires: perl(Scalar::Util)
-BuildArch: noarch
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
+BuildRequires:	perl-devel
+BuildRequires:	perl(Scalar::Util)
+BuildArch:	noarch
 
 %description
 The &nested_quotewords() and &quotewords() functions accept a delimiter
@@ -45,24 +45,33 @@ token parsing with whitespace as a delimiter-- similar to most Unix shells.
 %setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
-%{__perl} Makefile.PL INSTALLDIRS=vendor
-
-%{make}
+perl Makefile.PL INSTALLDIRS=vendor
+%make
 
 %check
-%{make} test
+%make test
 
 %install
-rm -rf %buildroot
 %makeinstall_std
 
-%clean
-rm -rf %buildroot
-
 %files
-%defattr(-,root,root)
 %doc CHANGES README
 %{_mandir}/man3/*
-%perl_vendorlib/*
+%{perl_vendorlib}/*
+
+%changelog
+* Mon Apr 25 2011 Funda Wang <fwang@mandriva.org> 3.270.0-3mdv2011.0
++ Revision: 658552
+- rebuild for updated spec-helper
+
+* Tue Jul 13 2010 Jérôme Quelin <jquelin@mandriva.org> 3.270.0-2mdv2011.0
++ Revision: 552180
+- rebuild
+
+* Sun Jul 12 2009 Jérôme Quelin <jquelin@mandriva.org> 3.270.0-1mdv2010.0
++ Revision: 395250
+- import perl-Text-ParseWords
 
 
+* Sun Jul 12 2009 cpan2dist 3.27-1mdv
+- initial mdv release, generated with cpan2dist
