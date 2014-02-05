@@ -1,15 +1,15 @@
 %define upstream_name    Text-ParseWords
-%define upstream_version 3.27
+%define upstream_version 3.29
 
 Name:		perl-%{upstream_name}
 Version:	%perl_convert_version %{upstream_version}
-Release:	4
+Release:	1
 
 Summary:	Parse strings containing shell-style quoting
 License:	GPL+ or Artistic
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{upstream_name}
-Source0:	http://www.cpan.org/modules/by-module/Text/%{upstream_name}-%{upstream_version}.zip
+Source0:	http://www.cpan.org/modules/by-module/Text/Text-ParseWords-%{upstream_version}.tar.gz
 
 BuildRequires:	perl-devel
 BuildRequires:	perl(Scalar::Util)
@@ -75,3 +75,4 @@ perl Makefile.PL INSTALLDIRS=vendor
 
 * Sun Jul 12 2009 cpan2dist 3.27-1mdv
 - initial mdv release, generated with cpan2dist
+

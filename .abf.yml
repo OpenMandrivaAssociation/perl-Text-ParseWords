@@ -1,2 +1,4 @@
+removed_sources:
+  Text-ParseWords-3.27.zip: 12ef6ce2a82cd595a0f50333b8beb9357a5efae2
 sources:
-  "Text-ParseWords-3.27.zip": 12ef6ce2a82cd595a0f50333b8beb9357a5efae2
+  Text-ParseWords-3.29.tar.gz: c0642c23773fee2790fd40f83ac0b201bff9cb2f
