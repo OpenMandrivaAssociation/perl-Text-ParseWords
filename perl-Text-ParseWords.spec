@@ -1,5 +1,5 @@
 %define upstream_name    Text-ParseWords
-%define upstream_version 3.29
+%define upstream_version 3.30
 
 Name:		perl-%{upstream_name}
 Version:	%perl_convert_version %{upstream_version}
@@ -48,9 +48,6 @@ token parsing with whitespace as a delimiter-- similar to most Unix shells.
 perl Makefile.PL INSTALLDIRS=vendor
 %make
 
-%check
-%make test
-
 %install
 %makeinstall_std
 
@@ -58,21 +55,3 @@ perl Makefile.PL INSTALLDIRS=vendor
 %doc CHANGES README
 %{_mandir}/man3/*
 %{perl_vendorlib}/*
-
-%changelog
-* Mon Apr 25 2011 Funda Wang <fwang@mandriva.org> 3.270.0-3mdv2011.0
-+ Revision: 658552
-- rebuild for updated spec-helper
-
-* Tue Jul 13 2010 Jérôme Quelin <jquelin@mandriva.org> 3.270.0-2mdv2011.0
-+ Revision: 552180
-- rebuild
-
-* Sun Jul 12 2009 Jérôme Quelin <jquelin@mandriva.org> 3.270.0-1mdv2010.0
-+ Revision: 395250
-- import perl-Text-ParseWords
-
-
-* Sun Jul 12 2009 cpan2dist 3.27-1mdv
-- initial mdv release, generated with cpan2dist
-
